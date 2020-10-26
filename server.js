@@ -7,7 +7,11 @@ const app = express();
 const port = 5000;
 
 
-app.get("/", (req,res) => res.send ("Hello World!"));
+app.get('/rovers/:name', async (req,res) => {
+  const response = await fetch (`https://api.nasa.gov/mars-photos/api/v1/manifests/${req.params.name.toLowerCase()}?api_key=${process.env.API_KEY}`)
+  .then(res => res.json())
+  return res.send ({ response })
+});
 
 // app.get("/getRoverdata", (req,res) => res.send ("Hello World!"));
 
