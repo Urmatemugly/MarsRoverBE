@@ -8,14 +8,17 @@ const port = 5000;
 
 
 app.get('/rovers/:name', async (req,res) => {
-  const response = await fetch (`https://api.nasa.gov/mars-photos/api/v1/manifests/${req.params.name.toLowerCase()}?api_key=${process.env.API_KEY}`)
+  const response = await fetch (`https://api.nasa.gov/mars-photos/api/v1/rovers/${req.params.name.toLowerCase()}/latest_photos?api_key=${process.env.API_KEY}`)
   .then(res => res.json())
+  .catch(console.log)
   return res.send ({ response })
+
 });
+
 
 // app.get("/getRoverdata", (req,res) => res.send ("Hello World!"));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`App listening on port ${port}!`))
 
 
 /** API CALLS **/
@@ -29,3 +32,7 @@ app.get('/apod', async (req, res) => {
         console.log('error:', err);
     }
 })
+
+
+
+/** helpful study resource; https://dev.to/loujaybee/using-create-react-app-with-express**/
