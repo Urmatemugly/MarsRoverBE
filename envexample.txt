@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 API_KEY=
-=======
-API_KEY='iv1jMquvkOh0iGXxl1D1qhszzPCeeytu1YlBpwRp'
->>>>>>> fa1d7aacf1e63ababa3c72d8b78cfa3250dafed7
